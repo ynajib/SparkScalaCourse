@@ -1,4 +1,4 @@
-package demo
+package demo.simple
 
 /**
   * Created by sromero on 2/28/17.

@@ -1,4 +1,4 @@
-package demo
+package demo.simple
 
 import org.junit._
 import Assert._
