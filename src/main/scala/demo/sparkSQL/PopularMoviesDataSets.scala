@@ -1,13 +1,12 @@
-package demo.advanced
+package demo.sparkSQL
 
-import org.apache.spark._
-import org.apache.spark.SparkContext._
-import org.apache.spark.sql._
-import org.apache.log4j._
-import scala.io.Source
 import java.nio.charset.CodingErrorAction
-import scala.io.Codec
+
+import org.apache.log4j._
+import org.apache.spark.sql._
 import org.apache.spark.sql.functions._
+
+import scala.io.{Codec, Source}
 
 /** Find the movies with the most ratings. */
 object PopularMoviesDataSets {
@@ -51,7 +50,7 @@ object PopularMoviesDataSets {
       .getOrCreate()
     
     // Read in each rating line and extract the movie ID; construct an RDD of Movie objects.
-    val lines = spark.sparkContext.textFile("../ml-100k/u.data").map(x => Movie(x.split("\t")(1).toInt))
+    val lines = spark.sparkContext.textFile("/Users/sromero/Development/SparkScala/ml-100k/u.data").map(x => Movie(x.split("\t")(1).toInt))
     
     // Convert to a DataSet
     import spark.implicits._

@@ -11,6 +11,7 @@ import scala.math.sqrt
 object MovieSimilarities {
 
   // spark-submit --class demo.advanced.MovieSimilarities demo-1.0-SNAPSHOT.jar 50
+  // Spark UI Port 4040
   
   /** Load up a Map of movie IDs to movie names. */
   def loadMovieNames() : Map[Int, String] = {
