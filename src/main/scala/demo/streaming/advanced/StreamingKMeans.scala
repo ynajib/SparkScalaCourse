@@ -1,11 +1,7 @@
 package demo.streaming.advanced
 
-import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.storage.StorageLevel
-import org.apache.spark.sql.SQLContext
-import org.apache.spark.rdd.RDD
-import org.apache.spark.SparkContext
 
 import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.mllib.regression.LabeledPoint
