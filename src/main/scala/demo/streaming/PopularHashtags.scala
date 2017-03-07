@@ -1,10 +1,7 @@
 package demo.streaming
 
-import org.apache.spark._
-import org.apache.spark.SparkContext._
 import org.apache.spark.streaming._
 import org.apache.spark.streaming.twitter._
-import org.apache.spark.streaming.StreamingContext._
 
 /** Listens to a stream of Tweets and keeps track of the most popular
  *  hashtags over a 5 minute window.
@@ -60,6 +57,7 @@ object PopularHashtags {
     
     // Now count them up over a 5 minute window sliding every one second
     val hashtagCounts = hashtagKeyValues.reduceByKeyAndWindow( (x,y) => x + y, (x,y) => x - y, Seconds(300), Seconds(1))
+
     //  You will often see this written in the following shorthand:
     //val hashtagCounts = hashtagKeyValues.reduceByKeyAndWindow( _ + _, _ -_, Seconds(300), Seconds(1))
     
@@ -71,7 +69,7 @@ object PopularHashtags {
     
     // Set a checkpoint directory, and kick it all off
     // I could watch this all day!
-    ssc.checkpoint("/checkpoint/")
+    ssc.checkpoint("/Users/sromero/Development/SparkScala/checkpoint/")
     ssc.start()
     ssc.awaitTermination()
   }  
